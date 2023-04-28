@@ -1,9 +1,22 @@
 from flask import Flask, render_template
+class Cancion:
+    def __init__(self,titulo,categoria,idioma):
+        self.titulo = titulo
+        self.categoria = categoria
+        self.idioma = idioma
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('listar.html')
+    cancion1 = Cancion('La guitarra','Pop','Catellano')
+    cancion2 = Cancion('Para no verte más','Pop','Catellano')
+    cancion3 = Cancion('Balada para un gordo','Balada','Catellano')
+    lista = [cancion1,cancion2,cancion3]
+    return render_template('listar.html', titulo='Canciones', musicas=lista)
 
-app.run(host="0.0.0.0", port=5000)
+@app.route('/nuevoregistro')
+def nuevoregistro():
+    return render_template('nuevoRegistro.html',titulo='Nueva Canción')
+
+app.run(host="0.0.0.0",port=5000)
