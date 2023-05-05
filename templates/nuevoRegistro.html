@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="../static/bootstrap.css">
     <title>Discoteca</title>
 </head>
     <body>
@@ -10,7 +11,7 @@
         <div class="page-header"> 
             <h1>{{ titulo }}</h1>
         </div>
-        <form>
+        <form action="/crear" method="post">
             <fieldset>
                 <div class="form-group"> 
                     <label for="titulo">Titulo</label>
