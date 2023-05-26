@@ -1,23 +1,26 @@
 {% extends "template.html" %}
 {% block contenido %}
 
-<table class="table table-striped table-responsive table-bordered">
-    <thead class="thead-default">
-        <tr>
-            <th>Título</th>
-            <th>Categoría</th>
-            <th>Idioma</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for musica in musicas %}
-        <tr>
-            <td>{{ musica.titulo }}</td>
-            <td>{{ musica.categoria }}</td>
-            <td>{{ musica.idioma }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
+    <table class="table table-striped table-responsive table-bordered">
+        <thead class="thead-default">
+            <tr>
+                <th>Título</th>
+                <th>Categoría</th>
+                <th>Idioma</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for musica in musicas %}
+            <tr>
+                <td>{{ musica.titulo }}</td>
+                <td>{{ musica.categoria }}</td>
+                <td>{{ musica.idioma }}</td>
+                <td>
+                    <a href="{{ url_for('editar', id=musica.id) }}">Editar</a>
+                    <a href="{{ url_for('eliminar', id=musica.id) }}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
